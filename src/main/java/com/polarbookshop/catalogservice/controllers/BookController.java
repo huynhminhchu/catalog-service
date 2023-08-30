@@ -9,22 +9,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/books")
-public class HomeController {
+public class BookController {
 
-    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+    private static final Logger logger = LoggerFactory.getLogger(BookController.class);
     private BookService bookService;
 
-    public HomeController(BookService bookService) {
+    public BookController(BookService bookService) {
         this.bookService = bookService;
-    }
-
-    @GetMapping("/home")
-    public String getGreeting(){
-        return "Welcome to the book catalog";
     }
 
 
@@ -51,6 +45,13 @@ public class HomeController {
     public Book put(@PathVariable String isbn, @Valid @RequestBody Book book){
         logger.info("Update a book: " + book);
         return bookService.updateBook(isbn,book);
+    }
+
+    @DeleteMapping(value = "/{isbn}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable String isbn){
+        logger.info("Delete a book with ISBN=: " + isbn);
+        bookService.deleteBook(isbn);
     }
 
 }
