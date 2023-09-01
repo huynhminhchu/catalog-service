@@ -25,6 +25,8 @@ public class Book {
     @Positive(message = "The book price must be greater than zero.")
     private Double price;
 
+    @Version
+    private int version;
     public String getTitle() {
         return title;
     }

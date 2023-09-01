@@ -17,3 +17,8 @@ logging:
 
 polar:
   greeting: Welcome to the local book catalog!
+---
+spring:
+  config:
+    activate:
+      on-profile: test
