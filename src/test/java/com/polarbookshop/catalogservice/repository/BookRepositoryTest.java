@@ -18,7 +18,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@ActiveProfiles("integration")
 class BookRepositoryTest extends PostgresTestBase {
 
     @Autowired
