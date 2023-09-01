@@ -1,12 +1,14 @@
 package com.polarbookshop.catalogservice.repository;
 
 import com.polarbookshop.catalogservice.model.Book;
+import com.polarbookshop.catalogservice.PostgresTestBase;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -15,14 +17,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ActiveProfiles("integration")
 @DataJpaTest
-@AutoConfigureTestDatabase(
-        replace = AutoConfigureTestDatabase.Replace.NONE
-)
-class BookRepositoryTest {
+@Transactional(propagation = Propagation.NOT_SUPPORTED)
+class BookRepositoryTest extends PostgresTestBase {
 
     @Autowired
     private BookRepository bookRepository;
 
+
+    static {
+
+    }
     @BeforeEach
     void setUp() {
         bookRepository.deleteAll();

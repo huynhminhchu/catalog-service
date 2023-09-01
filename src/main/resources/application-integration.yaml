@@ -1,6 +1,0 @@
-polar:
-  greeting: Welcome to the local book catalog test!
-
-spring:
-  datasource:
-    url: jdbc:tc:postgresql:15.1:///
