@@ -7,7 +7,7 @@ import org.testcontainers.containers.PostgreSQLContainer;
 public abstract class PostgresTestBase {
 
     private static PostgreSQLContainer postgresqlContainer = new PostgreSQLContainer("postgres:15.4")
-            .withDatabaseName("review-test")
+            .withDatabaseName("catalog-service-test")
             .withUsername("postgres")
             .withPassword("postgres");
 
