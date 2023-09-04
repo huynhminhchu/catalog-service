@@ -2,7 +2,7 @@ spring:
   datasource:
     username: mc
     password: Chudeptrai123
-    url: jdbc:postgresql://192.168.1.99:15432/catalog-service
+    url: jdbc:postgresql://192.168.1.99:15432/polardb_catalog
   jpa:
     properties:
       hibernate:
@@ -17,6 +17,9 @@ logging:
 
 polar:
   greeting: Welcome to the local book catalog!
+
+server:
+  port: 9001
 ---
 spring:
   config:
