@@ -2,7 +2,7 @@ spring:
   datasource:
     username: mc
     password: Chudeptrai123
-    url: jdbc:postgresql://localhost:15432/polardb_catalog
+    url: jdbc:postgresql://polar-postgres:5432/polardb_catalog
   jpa:
     properties:
       hibernate:
@@ -11,6 +11,11 @@ spring:
       ddl-auto: create-drop
       # Hibernate ddl auto (create, create-drop, validate, update)
     show-sql: true
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://host.docker.internal:8080/realms/PolarBookshop
 logging:
   level:
     root: info
